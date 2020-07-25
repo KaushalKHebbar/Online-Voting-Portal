@@ -23,12 +23,10 @@ As our nation is thriving with digitization, this “Online Voting System” see
 In this system, anyone who has registered is eligible to vote from his/her laptop remotely by using his/her mobile hotspot. This enables the electorate to cast his votes from wherever he/she is. A single server is run by the administrator (again using his/her mobile hotspot) and multiple clients (electorates) connect to them using IPv6 addressing This system can be used for a simple from "voting for the best to-go restaurant" to “voting for the best passing out student of the college” !! 
 
 # IPv4 vs IPv6 Addressing
-For IPv4 to communicate with the outside world we need to use Network Address Translation (NAT). This is so because, in IPv4 each device has a private IP address and a private port assigned in its LAN. If one has to connect to a laptop which is connected to the internet through a different LAN using IPv4, then it’s hard to do so, as we can only get Public IP address and public port of that network but not the computer’s Private IP and private port.
-
-This could have been overcome if we had access to the Router for modifying the NAT settings by adding our customized Private IP and port to the Public port mapping. But since we didn’t have the administrator access to do so, the entire procedure was found to be very involved. 
-
-So, we came up with idea of using IPv6 instead of IPv4 itself. In IPv6 addressing, we don’t have Network Address Translation and thus, the concept of Private address doesn’t exist. The laptop gets the same IP address as that of the phone with only the ports changed. This IP address is dynamic and changes every time you turn on your GPRS. The voting Client must be notified about the server IP address. 
-
+For IPv4 to communicate with the outside world we need to use Network Address Translation (NAT). If one has to connect to a laptop which is connected to the internet through a different LAN using IPv4, then it’s hard to do so, as we can only get Public IP address and public port of that network but not the computer’s Private IP and private port.
+<br>
+So, the idea of using IPv6 instead of IPv4 arose. In IPv6 addressing, we don’t have Network Address Translation and thus, the concept of Private address doesn’t exist. The laptop gets the same IP address as that of the phone with only the ports changed. This IP address is dynamic and changes every time you turn on your GPRS. The voting Client must be notified about the server IP address.
+<br>
 The IPv6 address of the PC can be found out by typing *“What is my IP”* on Google Chrome browser or simply the command *“ipconfig”* on the cmd.
 
 
