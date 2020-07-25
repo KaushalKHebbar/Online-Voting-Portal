@@ -9,7 +9,7 @@ An e-voting portal using Socket-Programming in Python using IPv4/IPv6.
 1. [Motivation](#motivation)  
 2. [Introduction](#introduction)
 3. [Configuration](#configuration)
-4. [IPv4 vs IPv6 Addressing](#IPv4 vs IPv6 Addressing)
+4. [IPv4 vs IPv6 Addressing](#IPv4-vs-IPv6 Addressing)
 5. [Communication Workflow](#communication-workflow)
 6. [Getting Started](#getting-started)
 
@@ -59,6 +59,8 @@ The IPv6 address of the PC can be found out by typing *“What is my IP”* on G
 
 
 # Communication Workflow
+![TCP Workflow](IMAGES/TCP%20workflow.jpg)
+
 The following steps shall be performed by the client and server during the online voting session: (Fig 4.1 summarizes the TCP workflow)
 1)	The server shall inform its Public IP to all the clients prior to the voting session. This is done by typing *ipconfig* on the cmd.
 2)	The administrator runs the server file by the following command entered on his/her cmd.
@@ -73,12 +75,15 @@ The following steps shall be performed by the client and server during the onlin
 9)	Hence, the server accepts only one client at a time queuing the rest and mutual communication happens via *send()* and *recv()* methods.
 10)	Finally, the connected client closes its connection via *close()* function and the waiting client automatically gets connected to the server. Only after all the clients close, will the server exit.
 
+# Algorithm
+The logic behind the whole system is given by the following steps of algorithm:
+1.	After successful interconnection connection between client and server, the administrator is asked for the number of clients connecting in the present round of polling.
+2.	The server then welcomes the client and asks for the client’s username and password in the format ‘usr-pwd’ here ‘first_name-last_4_digits_SRN’.
+3.	These credentials are then verified by the server with its database.
+4.	If electorate enters wrong credentials, one last chance is given for re-entry, failing which his/her vote is cancelled and he/she will no longer be eligible to vote.
+5.	Further, it’s made sure that every person can vote only once failing which a message stating the same will be displayed on the client side.
+6.	Once the client enters the right credentials, he/she is given a list of candidates to cast his/her vote for.
+7.	The server now checks for the entered candidate is in its database. If it does not find a matching name, the server sends a message stating that the client’s vote is cancelled. If the name matches then, that vote is appended. 
+8.	At the back end, the server updates the current votes with the previous round results, updates the list of voters already voted, etc. stores them in different .txt files. This done to ensure that no data is lost during any sudden power-outage or any other error shutdowns.
 
-
-# Getting Started
-### Software and Library Installation
-
-
-### Steps to follow
-1. 
 
